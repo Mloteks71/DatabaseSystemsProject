@@ -1,0 +1,62 @@
+﻿@page
+@model webapp.Pages.StronapracownikaModel
+
+@{
+    ViewData["Title"] = "Obsługa rezerwacji";
+    Layout = "../Shared/_LayoutPrac.cshtml";
+}
+
+
+<form asp-page="Stronapracownika" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Szukaj po tytule:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Szukaj" class="btn btn-primary" /> 
+            <a asp-page="Stronapracownika">Powrót do pełnej listy</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanses[0].data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].tytul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanses[0].ilosc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{ var i = 0; }
+    <tbody>
+        @foreach (var item in Model.Seanses)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Filmy.tytul)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ilosc)
+            </td>
+            <td>
+                <a asp-page="Kupienie" asp-route-id="@item.seans_id">Rezerwuj    </a>  
+            </td>
+            <td>
+                <a asp-page="Check" asp-route-id="@item.seans_id">Sprawdź rezerwacje</a>
+            </td>
+        </tr>
+            i++;
+        }
+    </tbody>
+</table>

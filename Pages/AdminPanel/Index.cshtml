@@ -1,0 +1,93 @@
+﻿@page
+@model webapp.Pages.AdminPanel.IndexModel
+@{
+    ViewData["Title"] = "Panel Admina";
+}
+<h1>Panel Admina</h1>
+
+<h2>Pracownicy</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownicy[0].nr_telefonu)
+            </th>
+        
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownicy[0].imie)
+            </th>
+          
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownicy[0].nazwisko)
+            </th>
+     
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Pracownicy)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nr_telefonu)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.imie)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwisko)
+                </td>
+           
+                <td>
+                    <a asp-page="../Pracownicyy/ZmianaPraw" asp-route-id="@item.Id">Zmień w klienta</a> |
+                    <a asp-page="../Pracownicyy/Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-page="../Pracownicyy/Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-page="../Pracownicyy/Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Użytkownicy</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Klienci[0].nr_telefonu)
+            </th>
+         
+            <th>
+                @Html.DisplayNameFor(model => model.Klienci[0].imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Klienci[0].nazwisko)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Klienci)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nr_telefonu)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.imie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwisko)
+                </td>
+                <td>
+                    <a asp-page="../Kliencii/ZmianaPraw" asp-route-id="@item.Id">Zmień w pracownika</a> |
+                    <a asp-page="../Kliencii/Edit" asp-route-id="@item.Id">Edytuj</a> |
+                    <a asp-page="../Kliencii/Details" asp-route-id="@item.Id">Szczegóły</a> |
+                    <a asp-page="../Kliencii/Delete" asp-route-id="@item.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

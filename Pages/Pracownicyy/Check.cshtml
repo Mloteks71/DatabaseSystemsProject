@@ -1,0 +1,46 @@
+﻿@page
+@model webapp.Pages.Pracownicyy.CheckModel
+@{
+    ViewData["Title"] = "Sprawdzanie rezerwacji";
+    Layout = "../Shared/_LayoutPrac.cshtml";
+}
+
+<form asp-page="Check" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Szukaj po tytule:
+            <input type="text" name="SearchTerm" />
+            <input type="submit" value="Szukaj" class="btn btn-primary" /> |
+            <a asp-page="Check">Powrót do pełnej listy</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Klienci[0].nr_telefonu)
+            </th>
+            <th>
+
+            <th></th>
+        </tr>
+    </thead>
+    @{ var i = 0; }
+    <tbody>
+        @foreach (var item in Model.Klienci)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nr_telefonu)
+                </td>
+
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="Stronapracownika">Powrót do Obsługi rezerwacji</a>
+</div>

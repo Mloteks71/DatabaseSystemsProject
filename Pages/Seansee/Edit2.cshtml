@@ -1,0 +1,66 @@
+﻿@page
+@model webapp.Pages.Seansee.Edit2Model
+
+@{
+    ViewData["Title"] = "Dodawanie pracowników";
+}
+
+<h1>Dodawanie pracowników</h1>
+<br />
+<br />
+<br />
+<br />
+<br />
+<table>
+    <tr>
+        <td>
+            <div>
+                Pracownicy:
+                <br />
+<pre>@Model.all</pre>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <br />
+            </div>
+        </td>
+
+        <td>
+            <div>
+
+                <form method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <select asp-for="Pracownicy.Id" asp-items="ViewBag.WorkID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Dodaj Pracownika" input />
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </form>
+            </div>
+        </td>
+        <td>
+            <div>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <select asp-for="Pracownicy.pensja" asp-items="ViewBag.WorkID2"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Usuń Pracownika" input />
+                    </div>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+<br />
+<br />
+<br />
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="submit" name="submitButton" value="Zatwierdź" input />
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

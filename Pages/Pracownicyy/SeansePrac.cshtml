@@ -1,0 +1,35 @@
+﻿@page
+@model webapp.Pages.Pracownicyy.SeansePracModel
+@{
+    ViewData["Title"] = "Lista twoich seansów";
+    Layout = "../Shared/_LayoutPrac.cshtml";
+}
+
+<h1>Lista twoich seansów</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanse[0].data)
+            </th>
+     
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Seanse)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data)
+                </td>
+        
+                <td>
+                    <a asp-page="./DetailsSeanse" asp-route-id="@item.seans_id">Szczegóły seansu</a> 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

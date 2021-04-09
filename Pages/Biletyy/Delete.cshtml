@@ -1,0 +1,28 @@
+﻿@page
+@model webapp.Pages.Biletyy.DeleteModel
+
+@{
+    ViewData["Title"] = "Usuwanie";
+}
+
+<h1>Usuwanie</h1>
+
+<h3>Czy na pewno chcesz usunąć ten bilet?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bilety.cena)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bilety.cena)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Bilety.bilet_id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-page="./Kupione">Powrót do listy</a>
+    </form>
+</div>

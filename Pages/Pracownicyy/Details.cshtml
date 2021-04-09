@@ -1,0 +1,61 @@
+﻿@page
+@model webapp.Pages.Temp.DetailsModel
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Pracownik</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.nr_telefonu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.nr_telefonu)
+        </dd>
+      
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.imie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.isAdmin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.isAdmin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.stanowisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.stanowisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.pensja)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.pensja)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownicy.data_zatrudnienia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownicy.data_zatrudnienia)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="../AdminPanel/Index">Powrót do listy</a>
+</div>

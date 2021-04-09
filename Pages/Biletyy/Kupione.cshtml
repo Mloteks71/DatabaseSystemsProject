@@ -1,0 +1,33 @@
+﻿@page
+@model webapp.Pages.Biletyy.KupioneModel
+@{
+    ViewData["Title"] = "Twoje Bilety";
+    Layout = "../Shared/_LayoutUser.cshtml";
+}
+<h1>Twoje bilety</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bilety[0].cena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Bilety)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cena)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.bilet_id">Szczegóły</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.bilet_id">Anuluj rezerwacje</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

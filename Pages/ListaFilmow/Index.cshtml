@@ -1,0 +1,108 @@
+﻿@page
+@model webapp.Pages.ListaFilmow.IndexModel
+
+@{
+    ViewData["Title"] = "Lista filmów";
+    Layout = "../Shared/_LayoutUser.cshtml";
+}
+
+<h1>Lista filmów</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <div>
+                    <form asp-page="ListaFilmow" method="get">
+                        <div class=" no-color d-flex justify-content-around">
+                            <p class="row d-flex justify-content-around">
+                                <input type="text" placeholder="Tytuł" name="searchString" class=" form-control col-5" />
+                                <input type="submit" value="szukaj" class="btn btn-primary col-5" />                               
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div>
+                    <form method="post" enctype="multipart/form-data">
+                        <p>
+                            <div class="form-group row d-flex justify-content-around">
+                                <select class="form-control col-5" asp-for="Gatunki.gatunek_id" asp-items="ViewBag.gID"></select>
+                                <input class="btn btn-primary" type="submit" name="submitButton" value="Szukaj gatunku" input />
+                            </div>
+                        </p>
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div>
+                    <form method="post" enctype="multipart/form-data">
+                        <p>
+                            <div class="form-group row d-flex justify-content-around">
+                                <select class="form-control col-5" asp-for="Aktorzy.aktor_id" asp-items="ViewBag.aID"></select>
+                                <input class="btn btn-primary" type="submit" name="submitButton" value="Szukaj aktora" input />
+                            </div>
+                        </p>
+                    </form>
+                </div>
+            </th>
+            <th>
+                <div class="col align-items-center">
+                    <p>
+                        <a asp-page-handler="ListaFilmow">Powrót do pełnej listy</a>
+                    </p>
+                </div>                                                                             
+            </th>
+        </tr>
+    </thead>
+</table>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].tytul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].data_premiery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].czas_trwania)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].ograniczenie_wiekowe)
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Filmy)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tytul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_premiery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czas_trwania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ograniczenie_wiekowe)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.film_id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

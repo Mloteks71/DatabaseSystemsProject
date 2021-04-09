@@ -1,0 +1,49 @@
+﻿@page
+@model webapp.Pages.Filmyy.CreateModel
+
+@{
+    ViewData["Title"] = "Tworzenie";
+}
+
+<h1>Tworzenie</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Filmy.tytul" class="control-label"></label>
+                <input asp-for="Filmy.tytul" class="form-control" />
+                <span asp-validation-for="Filmy.tytul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.data_premiery" class="control-label"></label>
+                <input asp-for="Filmy.data_premiery" class="form-control" />
+                <span asp-validation-for="Filmy.data_premiery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.czas_trwania" class="control-label"></label>
+                <input asp-for="Filmy.czas_trwania" class="form-control" />
+                <span asp-validation-for="Filmy.czas_trwania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.ograniczenie_wiekowe" class="control-label"></label>
+                <input asp-for="Filmy.ograniczenie_wiekowe" class="form-control" />
+                <span asp-validation-for="Filmy.ograniczenie_wiekowe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Utwórz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

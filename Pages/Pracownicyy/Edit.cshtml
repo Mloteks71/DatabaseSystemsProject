@@ -1,0 +1,69 @@
+﻿@page
+@model webapp.Pages.Temp.EditModel
+
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Pracownik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Pracownicy.Id" />
+            <div class="form-group">
+                <label asp-for="Pracownicy.nr_telefonu" class="control-label"></label>
+                <input asp-for="Pracownicy.nr_telefonu" class="form-control" />
+                <span asp-validation-for="Pracownicy.nr_telefonu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            
+                <input type="hidden" asp-for="Pracownicy.haslo" class="form-control" />
+                <span asp-validation-for="Pracownicy.haslo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pracownicy.imie" class="control-label"></label>
+                <input asp-for="Pracownicy.imie" class="form-control" />
+                <span asp-validation-for="Pracownicy.imie" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Pracownicy.isAdmin" /> @Html.DisplayNameFor(model => model.Pracownicy.isAdmin)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pracownicy.nazwisko" class="control-label"></label>
+                <input asp-for="Pracownicy.nazwisko" class="form-control" />
+                <span asp-validation-for="Pracownicy.nazwisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pracownicy.stanowisko" class="control-label"></label>
+                <input asp-for="Pracownicy.stanowisko" class="form-control" />
+                <span asp-validation-for="Pracownicy.stanowisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pracownicy.pensja" class="control-label"></label>
+                <input asp-for="Pracownicy.pensja" class="form-control" />
+                <span asp-validation-for="Pracownicy.pensja" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Pracownicy.data_zatrudnienia" class="form-control" />
+                <span asp-validation-for="Pracownicy.data_zatrudnienia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../AdminPanel/Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

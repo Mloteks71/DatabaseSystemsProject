@@ -1,0 +1,35 @@
+﻿@page
+@model webapp.Pages.Salee.IndexModel
+
+@{
+    ViewData["Title"] = "Lista sal";
+}
+
+<h1>Lista sal</h1>
+
+<p>
+    <a asp-page="Create">Utwórz nową sale</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sale[0].ilosc_miejsc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Sale) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ilosc_miejsc)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.nr_sali">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.nr_sali">Szczegóły</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

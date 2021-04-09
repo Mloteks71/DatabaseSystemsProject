@@ -1,0 +1,48 @@
+﻿@page
+@model webapp.Pages.Seansee.IndexModel
+
+@{
+    ViewData["Title"] = "Lista seansów";
+}
+
+<h1>Lista seansów</h1>
+
+<p>
+    <a asp-page="Create">Utwórz nowy seans</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanse[0].data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanse[0].Sale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanse[0].Filmy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Seanse) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sale.nr_sali)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filmy.tytul)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.seans_id">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.seans_id">Szczegóły</a> |
+                <a asp-page="./Delete" asp-route-id="@item.seans_id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

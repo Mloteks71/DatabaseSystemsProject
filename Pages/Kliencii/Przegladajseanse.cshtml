@@ -1,0 +1,50 @@
+﻿@page
+@model webapp.Pages.PrzegladajseanseModel
+@{
+    ViewData["Title"] = "Przeglądaj Seanse";
+    Layout = "../Shared/_LayoutUser.cshtml";
+}
+
+
+
+<form asp-page="Przegladajseanse" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Szukaj po tytule:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Szukaj" class="btn btn-primary" /> |
+            <a asp-page="Przegladajseanse">Powrót do pełnej listy</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seanse[0].data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].tytul)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @{ var i = 0; }
+    <tbody>
+        @foreach (var item in Model.Seanse)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Filmy.tytul)
+            </td>
+            <td>
+                <a asp-page="/Biletyy/Kupienie" asp-route-id="@item.seans_id">Rezerwuj</a>
+            </td>
+        </tr>
+            i++;
+        }

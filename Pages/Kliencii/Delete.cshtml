@@ -1,0 +1,39 @@
+﻿@page
+@model webapp.Pages.TempU.DeleteModel
+
+@{
+    ViewData["Title"] = "Usuwanie";
+}
+
+<h1>Usuwanie</h1>
+
+<h3>Czy na pewno chcesz usunąć tego klienta?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klienci.nr_telefonu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klienci.nr_telefonu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klienci.imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klienci.imie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klienci.nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klienci.nazwisko)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Klienci.Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-page="../AdminPanel/Index">Powrót do listy</a>
+    </form>
+</div>

@@ -1,0 +1,150 @@
+﻿@page
+@model webapp.Pages.Filmyy.EditModel
+
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Filmy.film_id" />
+            <div class="form-group">
+                <label asp-for="Filmy.tytul" class="control-label"></label>
+                <input asp-for="Filmy.tytul" class="form-control" />
+                <span asp-validation-for="Filmy.tytul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.data_premiery" class="control-label"></label>
+                <input asp-for="Filmy.data_premiery" class="form-control" />
+                <span asp-validation-for="Filmy.data_premiery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.czas_trwania" class="control-label"></label>
+                <input asp-for="Filmy.czas_trwania" class="form-control" />
+                <span asp-validation-for="Filmy.czas_trwania" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filmy.ograniczenie_wiekowe" class="control-label"></label>
+                <input asp-for="Filmy.ograniczenie_wiekowe" class="form-control" />
+                <span asp-validation-for="Filmy.ograniczenie_wiekowe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submitButton" value="Zapisz" class="btn btn-primary" />
+                <br />
+                <br />
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<table>
+    <tr>
+        <td>
+            <div>
+                Gatunki:
+                <br />
+<pre>@Model.allg</pre>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <br />
+            </div>
+        </td>
+
+        <td>
+            <div>
+
+                <form method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <select asp-for="Gatunki.gatunek_id" asp-items="ViewBag.GatID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Dodaj Gatunek" input />
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </form>
+            </div>
+        </td>
+        <td>
+            <div>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <select asp-for="Gatunki.gatunek_id" asp-items="ViewBag.GatID2"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Usuń Gatunek" input />
+                    </div>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+
+<table>
+    <tr>
+        <td>
+            <div>
+                Aktorzy:
+                <br />
+<pre>@Model.alla</pre>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <br />
+            </div>
+        </td>
+
+        <td>
+            <div>
+
+                <form method="post" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <select asp-for="Aktorzy.aktor_id" asp-items="ViewBag.AktID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Dodaj Aktora" input />
+                    </div>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                </form>
+            </div>
+        </td>
+        <td>
+            <div>
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <select asp-for="Aktorzy.aktor_id" asp-items="ViewBag.AktID2"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" name="submitButton" value="Usuń Aktora" input />
+                    </div>
+                </form>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<div>
+    <a asp-page="./Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

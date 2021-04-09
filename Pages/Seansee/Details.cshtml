@@ -1,0 +1,41 @@
+﻿@page
+@model webapp.Pages.Seansee.DetailsModel
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Seans</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.Sale)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.Sale.nr_sali)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.Filmy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.Filmy.tytul)
+        </dd>
+
+    </dl>
+</div>
+  Pracownicy:
+<br/>
+<pre>@Model.all</pre>
+<br/>
+<div>
+    <a asp-page="./Index">Powrót do listy</a>
+</div>

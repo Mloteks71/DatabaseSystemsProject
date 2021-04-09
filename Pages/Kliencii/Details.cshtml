@@ -1,0 +1,31 @@
+﻿@page
+@model webapp.Pages.TempU.DetailsModel
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Klient</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klienci.nr_telefonu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klienci.nr_telefonu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klienci.imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klienci.imie)
+        </dd>
+     
+    </dl>
+</div>
+<div>
+    <a asp-page="../AdminPanel/Index">Powrót do listy</a>
+</div>

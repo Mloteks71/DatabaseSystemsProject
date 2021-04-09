@@ -1,0 +1,30 @@
+﻿@page
+@model webapp.Pages.Logowanie.WelcomeModel
+@{
+    ViewData["Title"] = "Twój profil";
+    Layout = "../Shared/_LayoutUser.cshtml";
+}
+@using Microsoft.AspNetCore.Http
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <h3>Twój profil:</h3>
+    <br />
+    Numer telefonu: @Model.klient.nr_telefonu
+    <br />
+    <br />
+    Imie: @Model.klient.imie
+    <br />
+    <br />
+    Nazwisko: @Model.klient.nazwisko
+    <br />
+    <br />
+    <a asp-page="/Index" asp-page-handler="logout">Wyloguj się</a>
+    <br />
+    <br />
+    <a asp-page="profile">Edytuj Profil</a>
+</body>
+</html>

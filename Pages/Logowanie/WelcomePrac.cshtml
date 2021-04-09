@@ -1,0 +1,36 @@
+﻿@page
+@model webapp.Pages.Logowanie.WelcomePracModel
+@{
+    ViewData["Title"] = "Twój profil";
+    Layout = "../Shared/_LayoutPrac.cshtml";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+
+<body>
+    <h3>Twój profil:</h3>
+    <br />
+    Numer telefonu: @Model.prac.nr_telefonu
+    <br />
+    <br />
+    Imie: @Model.prac.imie
+    <br />
+    <br />
+    Nazwisko: @Model.prac.nazwisko
+    <br />
+    <br />
+    Stanowisko: @Model.prac.stanowisko
+    <br />
+    <br />
+    Data Zatrudnienia: @Model.prac.data_zatrudnienia
+    <br />
+    <br />
+
+
+    <a asp-page="/Index" asp-page-handler="logout">Wyloguj się</a>
+    <br />
+</body>
+</html>

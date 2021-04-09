@@ -1,0 +1,49 @@
+﻿@page
+@model webapp.Pages.TempU.EditModel
+
+@{
+    ViewData["Title"] = "Edytuj";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Klient</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Klienci.Id" />
+            <div class="form-group">
+                <label asp-for="Klienci.nr_telefonu" class="control-label"></label>
+                <input asp-for="Klienci.nr_telefonu" class="form-control" />
+                <span asp-validation-for="Klienci.nr_telefonu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Klienci.haslo" class="form-control" />
+                <span asp-validation-for="Klienci.haslo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Klienci.imie" class="control-label"></label>
+                <input asp-for="Klienci.imie" class="form-control" />
+                <span asp-validation-for="Klienci.imie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Klienci.nazwisko" class="control-label"></label>
+                <input asp-for="Klienci.nazwisko" class="form-control" />
+                <span asp-validation-for="Klienci.nazwisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zapisz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../AdminPanel/Index">Powrót do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model webapp.Pages.Filmyy.IndexModel
+
+@{
+    ViewData["Title"] = "Lista filmów";
+}
+
+<h1>Lista filmów</h1>
+
+<p>
+    <a asp-page="Create">Utwórz nowy film</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].tytul)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filmy[0].data_premiery)
+            </th>
+    
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Filmy) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tytul)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_premiery)
+            </td>
+           
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.film_id">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.film_id">Szczegóły</a> |
+                <a asp-page="./Delete" asp-route-id="@item.film_id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

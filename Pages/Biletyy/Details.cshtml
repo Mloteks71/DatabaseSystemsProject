@@ -1,0 +1,51 @@
+﻿@page
+@model webapp.Pages.Biletyy.DetailsModel
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Bilet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Bilety.cena)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Bilety.cena)
+        </dd>
+    </dl>
+</div>
+<div>
+    <br />
+    <br />
+    <h4>Seans:</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.data)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.data)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.Sale)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.Sale.nr_sali)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seanse.Filmy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seanse.Filmy.tytul)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <a asp-page="./Kupione">Powrót do listy</a>
+</div>

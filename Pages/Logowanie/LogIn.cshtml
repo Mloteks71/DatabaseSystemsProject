@@ -1,0 +1,39 @@
+﻿@page
+@model LogInModel
+@{
+    ViewData["Title"] = "Logowanie";
+    Layout = "../Shared/_LayoutNoone.cshtml";
+}
+
+<html>
+<body>
+
+    <h3>Zaloguj się</h3>
+    @Model.Msg
+    <form method="post" asp-page="index">
+        <table>
+            <tr>
+                <td>Numer telefonu</td>
+                <td>
+                    <input asp-for="@Model.klient.nr_telefonu" />
+                </td>
+            </tr>
+            <tr>
+                <td>Hasło</td>
+                <td>
+                    <input asp-for="@Model.klient.haslo" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <input type="submit" value="Zaloguj" />
+                    <br />
+                    <a asp-page="signup">Zarejestruj się</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
